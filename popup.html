@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./popup.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="botao_empresa">Clique aqui</button>
+    <button id="botao_torre">Clique aqui</button>
+    <button id="botao_usuario">Clique aqui</button>
+    <button id="botao_maquina">Clique aqui</button>
+
+    <div class="popup_wrapper_empresa">
+        <div class="popup_empresa">
+            <div class="popup_close_empresa">x</div>
+
+            <div class="popup_content_empresa">
+                <h2>Empresa</h2>
+
+                <div class="select_ano">
+                    <select name="empresa_ano" id="empresa_ano">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    </select>  
+                </div>
+                
+                <div class="graph">
+                    <canvas id="chartBarEmpresa"></canvas>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="popup_wrapper_torre">
+        <div class="popup_torre">
+            <div class="popup_close_torre">x</div>
+
+            <div class="popup_content_torre">
+                <h2>Torre</h2>
+
+                <div class="select_ano">
+                    <select name="empresa_ano" id="empresa_ano">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    </select>  
+                </div>
+                
+                <div class="graph">
+                    <canvas id="chartBarTorre"></canvas>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="popup_wrapper_usuario">
+        <div class="popup_usuario">
+            <div class="popup_close_usuario">x</div>
+
+            <div class="popup_content_usuario">
+                <h2>Usuário</h2>
+
+                <div class="select_ano">
+                    <select name="empresa_ano" id="empresa_ano">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    </select>  
+                </div>
+                
+                <div class="graph">
+                    <canvas id="chartBarUsuario"></canvas>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="popup_wrapper_maquina">
+        <div class="popup_maquina">
+            <div class="popup_close_maquina">x</div>
+
+            <div class="popup_content_maquina">
+                <h2>Máquina</h2>
+
+                <div class="select_ano">
+                    <select name="empresa_ano" id="empresa_ano">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    </select>  
+                </div>
+                
+                <div class="graph">
+                    <canvas id="chartBarMaquina"></canvas>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+<script src="./app.js"></script>
+<script>
+    // GRAFICO EMPRESAS
+    const labelsBarEmpresa = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+    const dataBarEmpresa = {
+    labels: labelsBarEmpresa,
+    datasets: 
+    [
+        {
+        label: '',
+        backgroundColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderWidth: 1,
+        data: [1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1],
+        }
+    ]
+    };
+
+    // Configurações do gráfico Barras
+    const configBarEmpresa = {
+    type: "bar",
+    data: dataBarEmpresa,
+    options: {maintainAspectRatio: false },
+    };
+
+    var chartBarEmpresa = new Chart(document.getElementById('chartBarEmpresa'), configBarEmpresa);
+
+
+
+    // GRAFICO TORRE
+    const labelsBarTorre = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+    const dataBarTorre = {
+    labels: labelsBarTorre,
+    datasets: 
+    [
+        {
+        label: '',
+        backgroundColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderWidth: 1,
+        data: [1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1],
+        }
+    ]
+    };
+
+    // Configurações do gráfico Barras
+    const configBarTorre = {
+    type: "bar",
+    data: dataBarTorre,
+    options: {maintainAspectRatio: false },
+    };
+
+    var chartBarTorre = new Chart(document.getElementById('chartBarTorre'), configBarTorre);
+
+    // GRAFICO USUÁRIO
+    const labelsBarUsuario = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+    const dataBarUsuario = {
+    labels: labelsBarUsuario,
+    datasets: 
+    [
+        {
+        label: '',
+        backgroundColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderWidth: 1,
+        data: [1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1],
+        }
+    ]
+    };
+
+    // Configurações do gráfico Barras
+    const configBarUsuario = {
+    type: "bar",
+    data: dataBarUsuario,
+    options: {maintainAspectRatio: false },
+    };
+
+    var chartBarUsuario = new Chart(document.getElementById('chartBarUsuario'), configBarUsuario);
+
+    // GRAFICO MAQUINA
+    const labelsBarMaquina = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+    const dataBarMaquina = {
+    labels: labelsBarMaquina,
+    datasets: 
+    [
+        {
+        label: '',
+        backgroundColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderColor: [
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)', 
+            'rgb(68, 114, 196)'
+        ],
+        borderWidth: 1,
+        data: [1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 1],
+        }
+    ]
+    };
+
+    // Configurações do gráfico Barras
+    const configBarMaquina = {
+    type: "bar",
+    data: dataBarMaquina,
+    options: {maintainAspectRatio: false },
+    };
+
+    var chartBarMaquina = new Chart(document.getElementById('chartBarMaquina'), configBarMaquina);
+
+
+</script>
